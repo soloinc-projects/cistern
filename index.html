@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cistern: The $12.99 one-time, source-cited exam-prep app for entry-level Water Treatment Grade 1 operators.">
+  <meta property="og:title" content="Cistern – Water/Wastewater Operator Exam Prep">
+  <meta property="og:description" content="Source-cited practice questions for Water Treatment Grade 1 certification. One-time purchase, no subscriptions.">
+  <meta property="og:image" content="/og-image.png">
+  <meta property="og:type" content="website">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Cistern">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <title>Cistern – Water/Wastewater Operator Exam Prep</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Import fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=Inter:wght@400;600&display=swap');
+
+    /* Light mode (default) */
+    :root {
+      --surface: #FFFFFF;
+      --surface-muted: #F1F5F7;
+      --ink: #15232B;
+      --text-secondary: #45565F;
+      --accent: #0B6E8F;
+      --border: #C7D3D8;
+      --feedback-correct-bg: #CDEFDA;
+      --feedback-correct-fg: #0B3D23;
+
+      --font-display: 'Archivo', sans-serif;
+      --font-body: 'Inter', sans-serif;
+
+      color-scheme: light;
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --surface: #0E1A20;
+        --surface-muted: #16242C;
+        --ink: #ECF2F5;
+        --text-secondary: #A9BAC2;
+        --accent: #6FD2EF;
+        --border: #2E3C44;
+        --feedback-correct-bg: #0F3322;
+        --feedback-correct-fg: #B6EFC9;
+
+        color-scheme: dark;
+      }
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--surface);
+      color: var(--ink);
+      line-height: 1.6;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--text-secondary);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    a:hover {
+      opacity: 0.7;
+    }
+
+    /* Skip to main content */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent);
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Layout */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 1.5rem 1rem;
+      border-bottom: 1px solid var(--border);
+      background-color: var(--surface-muted);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .logo img {
+      width: 32px;
+      height: 32px;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* Hero section */
+    .hero {
+      padding: 4rem 1rem;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: var(--text-secondary);
+    }
+
+    /* CTA Button */
+    .cta-container {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background-color: var(--surface-muted);
+      color: var(--ink);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--border);
+    }
+
+    /* Proof points section */
+    .proof-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+      padding: 0 1rem;
+    }
+
+    .proof-point {
+      padding: 2rem;
+      background-color: var(--surface-muted);
+      border-radius: 0.75rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .proof-point h3 {
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .proof-point p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      margin-bottom: 0;
+    }
+
+    /* Content section */
+    .content-section {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .content-section h2 {
+      color: var(--ink);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 2rem 1rem;
+      border-top: 1px solid var(--border);
+      background-color: var(--surface-muted);
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-credit {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 640px) {
+      header {
+        padding: 1rem;
+      }
+
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+      }
+
+      .proof-points {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .cta-container {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    /* Semantic HTML structures */
+    .pricing-note {
+      background-color: var(--feedback-correct-bg);
+      color: var(--feedback-correct-fg);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin: 2rem 0;
+      border-left: 4px solid var(--feedback-correct-fg);
+    }
+
+    .privacy-summary {
+      background-color: var(--surface-muted);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">
+        <span>Cistern</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="/#proof-points">Why Cistern</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/support">Support</a>
+        <a href="/terms">Terms</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <h1>Cistern: Source-Cited Exam Prep for Water Operators</h1>
+      <p>The $12.99 one-time, source-cited exam-prep app for entry-level Water Treatment Grade 1 operators who are tired of paying $29.99–49.99 for outdated alternatives.</p>
+
+      <div class="cta-container">
+        <a href="https://apps.apple.com/app/cistern-operator-exam-prep/id0" class="btn btn-primary" aria-label="Download Cistern on the App Store">
+          Get on App Store
+        </a>
+        <a href="#proof-points" class="btn btn-secondary">Learn More</a>
+      </div>
+
+      <div class="pricing-note">
+        <strong>One-time purchase, no subscriptions.</strong> Buy once, study whenever you want, completely offline.
+      </div>
+    </section>
+
+    <section class="content-section" id="proof-points">
+      <h2>Why choose Cistern?</h2>
+      <div class="proof-points">
+        <article class="proof-point">
+          <h3>1/3 the Price</h3>
+          <p>$12.99 one-time vs. $29.99–49.99 recurring. No price hikes, no subscriptions—just one purchase to study forever.</p>
+        </article>
+
+        <article class="proof-point">
+          <h3>100% Source-Cited</h3>
+          <p>Every question explanation cites its public source (EPA guidance, state study guides). Verify every answer yourself.</p>
+        </article>
+
+        <article class="proof-point">
+          <h3>Modern Design</h3>
+          <p>Built for iOS 26 with Liquid Glass materials and full Dark Mode support. No stale, flat chrome.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>For Water Operators</h2>
+      <p>Cistern is built specifically for water and wastewater treatment plant operators preparing for state certification exams. Whether you're studying for your first Water Treatment Grade 1 exam or renewing certification, Cistern provides accurate, up-to-date practice questions you can trust.</p>
+
+      <h3>Features</h3>
+      <ul style="margin-bottom: 2rem; padding-left: 1.5rem;">
+        <li>150+ original, source-cited practice questions</li>
+        <li>Study completely offline—no internet required</li>
+        <li>Multiple quiz modes (Quick 10, Timed Quiz, Mock Exam, Review)</li>
+        <li>Track your progress without creating an account</li>
+        <li>Full Dark Mode and accessibility support</li>
+        <li>No ads, no tracking, no data collection</li>
+      </ul>
+
+      <div class="privacy-summary">
+        <strong>Your privacy is built in.</strong> Cistern never collects personal information, never sends data to our servers, and never tracks you. Your quiz scores and progress stay on your device, period.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/support">Support</a>
+        <a href="/terms">Terms of Service</a>
+      </div>
+      <p class="footer-credit">© 2026 SoloINC LLC. Cistern is a trademark of SoloINC LLC.</p>
+    </div>
+  </footer>
+</body>
+</html>

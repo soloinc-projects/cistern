@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Cistern favicon">
+  <style>
+    .fav-bg { fill: #FFFFFF; }
+    .fav-ink { fill: none; stroke: #15232B; stroke-width: 3; stroke-linejoin: round; }
+    .fav-foot { fill: #15232B; }
+    .fav-water { fill: #0B6E8F; }
+    @media (prefers-color-scheme: dark) {
+      .fav-bg { fill: #0E1A20; }
+      .fav-ink { stroke: #ECF2F5; }
+      .fav-foot { fill: #ECF2F5; }
+      .fav-water { fill: #6FD2EF; }
+    }
+  </style>
+  <defs>
+    <clipPath id="tankClip">
+      <rect x="5" y="8" width="14" height="12" rx="1.5" ry="1.5" />
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="24" height="24" rx="4" class="fav-bg" />
+  <rect x="5" y="14" width="14" height="6" class="fav-water" clip-path="url(#tankClip)" />
+  <rect x="3" y="4" width="18" height="3" rx="1.5" ry="1.5" class="fav-ink" />
+  <rect x="5" y="8" width="14" height="12" rx="1.5" ry="1.5" class="fav-ink" />
+  <rect x="8" y="20" width="2" height="2" rx="0.5" ry="0.5" class="fav-foot" />
+  <rect x="14" y="20" width="2" height="2" rx="0.5" ry="0.5" class="fav-foot" />
+</svg>
