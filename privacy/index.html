@@ -225,18 +225,12 @@
     <p>When you buy Cistern:</p>
     <ul>
       <li><strong>Apple handles your payment</strong> – Your credit card, Apple ID, and payment details are managed entirely by Apple's StoreKit framework. Cistern never sees your payment information.</li>
-      <li><strong>We receive a receipt notification</strong> – Apple sends us a transaction receipt so we know your purchase was valid. This receipt contains no personal information about you, just a proof of purchase.</li>
+ <li><strong>The purchase is checked on your device</strong> – StoreKit tells the app on your device that the purchase is valid. Nothing about it is sent to us; we have no server.</li>
       <li><strong>No recurring charges</strong> – Cistern is sold as a non-renewing in-app purchase. You pay once. Your payment method is never charged again.</li>
     </ul>
 
     <h2>App Analytics</h2>
-    <p>Cistern sends only aggregate, first-party analytics to understand app health and user engagement:</p>
-    <ul>
-      <li>That the app was opened</li>
-      <li>That a quiz was started or completed (no question content, no score details)</li>
-      <li>That a purchase was attempted, completed, or failed</li>
-    </ul>
-    <p>These are all sent to first-party servers only, not to third-party analytics platforms. No personally identifiable information is included.</p>
+    <p>Cistern has no analytics. It writes short diagnostic lines (that a quiz started, that a purchase completed) to your device's own system log, which never leaves the device unless you choose to share diagnostics with Apple in your iPhone's settings. Cistern itself sends nothing anywhere.</p>
 
     <h2>Children's Privacy</h2>
     <p>Cistern is designed for professional adults (water treatment operators) and complies with the Children's Online Privacy Protection Act (COPPA) by not intentionally collecting data from children under 13. If a child's parent or guardian becomes aware that a child has provided Cistern with personal information, please contact us immediately.</p>
@@ -248,7 +242,7 @@
     <p>Since Cistern stores no account data, no personal information, and no data linked to your identity, there is no account to delete and no personal data we hold to delete. All data Cistern knows about is stored on your device only and is deleted when you uninstall the app.</p>
 
     <h2>Offline Operation</h2>
-    <p>Cistern works entirely offline. You can study on an airplane, in a basement, or anywhere with zero network connectivity. Cistern makes no network calls except during the initial in-app purchase flow, which Apple handles.</p>
+    <p>Cistern works entirely offline. You can study on an airplane, in a basement, or anywhere with zero network connectivity. Cistern itself makes no network calls. The in-app purchase is handled by Apple, and a "Read it at the source" link opens the publisher's page in your browser.</p>
 
     <h2>Third-Party Services</h2>
     <p>Cistern does not use any third-party SDKs or services that collect data. No Firebase, no Mixpanel, no advertising networks. Your quiz data never touches a third-party server.</p>
@@ -257,7 +251,7 @@
     <p>Your device's OS provides security for locally stored data. The iOS operating system encrypts app data at rest. Cistern does not implement custom encryption because it has no reason to: we don't store sensitive data, and the OS provides encryption by default.</p>
 
     <h2>Privacy Policy Changes</h2>
-    <p>If Cistern's privacy practices change, we will update this policy and notify you within the app. Major changes will require your consent before taking effect.</p>
+    <p>If Cistern's privacy practices change, we will update this page and its date before the change ships in an app update.</p>
 
     <h2>Contact Us</h2>
     <p>If you have any privacy concerns or questions, email us at <a href="mailto:support@8086.llc">support@8086.llc</a>.</p>
