@@ -219,18 +219,18 @@
       <li><strong>Quiz score history</strong> – Your scores from each quiz you take, stored locally on your device</li>
       <li><strong>Streak state</strong> – How many days in a row you've taken a quiz, stored locally</li>
     </ul>
-    <p>Cistern <strong>never transmits</strong> this data. It has no servers, no sync and no copy of your progress, and it shares nothing with anyone. If your iPhone or iPad backs up to iCloud or to a computer, iOS includes this data in that backup, as it does for every app's data. The backup goes to your own Apple Account or computer, and Cistern cannot read it.</p>
+    <p>Cistern <strong>never transmits</strong> this data. It has no servers, no sync and no copy of your progress, and it shares nothing with anyone. If your iPhone or iPad backs up to iCloud or to a computer, iOS includes this data in that backup, as it does for every app's data. The backup goes to your own Apple Account or computer, and Cistern cannot read it. On Android, Cistern opts out of Android's backup and device-to-device transfer, so its data stays on that one device.</p>
 
     <h2>How Purchase Information Is Handled</h2>
     <p>When you buy Cistern:</p>
     <ul>
-      <li><strong>Apple handles your payment</strong> – Your credit card, Apple ID, and payment details are managed entirely by Apple's StoreKit framework. Cistern never sees your payment information.</li>
- <li><strong>The purchase is checked on your device</strong> – StoreKit tells the app on your device that the purchase is valid. Nothing about it is sent to us; we have no server.</li>
+      <li><strong>Apple or Google handles your payment</strong> – On iPhone and iPad, your card, Apple Account and payment details are handled by Apple (StoreKit). On Android, they are handled by Google Play (Google Play Billing). Cistern never sees your payment information.</li>
+ <li><strong>The purchase is checked on your device</strong> – StoreKit or Google Play tells the app on your device that the purchase is valid. Nothing about it is sent to us; we have no server.</li>
       <li><strong>No recurring charges</strong> – Cistern is sold as a non-renewing in-app purchase. You pay once. Your payment method is never charged again.</li>
     </ul>
 
     <h2>App Analytics</h2>
-    <p>Cistern has no analytics. It writes short diagnostic lines (that a quiz started, that a purchase completed) to your device's own system log, which never leaves the device unless you choose to share diagnostics with Apple in your iPhone's settings. Cistern itself sends nothing anywhere.</p>
+    <p>Cistern has no analytics. It writes short diagnostic lines (that a quiz started, that a purchase completed) to your device's own system log, which never leaves the device unless you choose to share diagnostics with Apple or Google in your device's settings. Cistern itself sends nothing anywhere.</p>
 
     <h2>Children's Privacy</h2>
     <p>Cistern is designed for professional adults (water treatment operators) and complies with the Children's Online Privacy Protection Act (COPPA) by not intentionally collecting data from children under 13. If a child's parent or guardian becomes aware that a child has provided Cistern with personal information, please contact us immediately.</p>
@@ -242,13 +242,13 @@
     <p>Since Cistern stores no account data, no personal information, and no data linked to your identity, there is no account to delete and no personal data we hold to delete. All data Cistern knows about is stored on your device only and is deleted when you uninstall the app.</p>
 
     <h2>Offline Operation</h2>
-    <p>Cistern works entirely offline. You can study on an airplane, in a basement, or anywhere with zero network connectivity. Cistern itself makes no network calls. The in-app purchase is handled by Apple, and a "Read it at the source" link opens the publisher's page in your browser.</p>
+    <p>Cistern works entirely offline. You can study on an airplane, in a basement, or anywhere with zero network connectivity. Cistern itself makes no network calls. The in-app purchase is handled by Apple or Google Play, and a "Read it at the source" link opens the publisher's page in your browser.</p>
 
     <h2>Third-Party Services</h2>
-    <p>Cistern does not use any third-party SDKs or services that collect data. No Firebase, no Mixpanel, no advertising networks. Your quiz data never touches a third-party server.</p>
+    <p>Cistern does not use any third-party SDKs or services that collect data. No Firebase, no Mixpanel, no advertising networks. On Android the only Google libraries are Play Billing (the purchase), Play's in-app review prompt and Play's age signal; Cistern sends them none of your quiz data, and the Android app has no internet permission of its own. Your quiz data never touches a third-party server.</p>
 
     <h2>Security</h2>
-    <p>Your device's OS provides security for locally stored data. The iOS operating system encrypts app data at rest. Cistern does not implement custom encryption because it has no reason to: we don't store sensitive data, and the OS provides encryption by default.</p>
+    <p>Your device's OS provides security for locally stored data. iOS and Android encrypt app data at rest. Cistern does not implement custom encryption because it has no reason to: we don't store sensitive data, and the OS provides encryption by default.</p>
 
     <h2>Privacy Policy Changes</h2>
     <p>If Cistern's privacy practices change, we will update this page and its date before the change ships in an app update.</p>
@@ -257,7 +257,7 @@
     <p>If you have any privacy concerns or questions, email us at <a href="mailto:support@8086.llc">support@8086.llc</a>.</p>
 
     <div class="last-updated">
-      Last updated: October 19, 2026
+      Last updated: October 20, 2026
     </div>
   </main>
 
